@@ -1,0 +1,1040 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2575.7">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html lang="vi"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1">&lt;meta charset="UTF-8" /&gt;</p>
+<p class="p1">&lt;title&gt;Smart Review 2.0 – Ôn bài toán khó&lt;/title&gt;</p>
+<p class="p1">&lt;meta name="viewport" content="width=device-width, initial-scale=1.0" /&gt;</p>
+<p class="p1">&lt;link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"&gt;</p>
+<p class="p1">&lt;style&gt;</p>
+<p class="p1">/* -------------------- 1. VARIABLES &amp; RESET -------------------- */</p>
+<p class="p1">:root{</p>
+<p class="p1"><span class="Apple-converted-space">    </span>--bg: #f3f4f6; /* Light Gray Background */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>--card: #ffffff; /* White Card */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>--primary: #4f46e5; /* Indigo */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>--primary-light: #eef2ff;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>--danger: #dc2626;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>--danger-light: #fee2e2;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>--text: #1f2937; /* Darker Text */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>--muted: #6b7280;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>--success: #059669;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>--success-light: #d1fae5;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>--warning: #d97706;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>--warning-light: #fef9c3;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>--border: #e5e7eb;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>--shadow-light: rgba(255, 255, 255, 0.7);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>--shadow-dark: rgba(0, 0, 0, 0.15);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>--card-shadow: 0 4px 12px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.03);</p>
+<p class="p1">}</p>
+<p class="p1">*{box-sizing:border-box}</p>
+<p class="p1">body{margin:0;font-family:Inter,system-ui;background:var(--bg);color:var(--text);line-height:1.5;}</p>
+<p class="p1">header{background:var(--card);border-bottom:1px solid var(--border); box-shadow: var(--card-shadow);}</p>
+<p class="p1">header .wrap{max-width:1200px;margin:auto;padding:16px 24px;display:flex;justify-content:space-between;align-items:center}</p>
+<p class="p1">main{max-width:1200px;margin:auto;padding:24px}</p>
+<p class="p2"><br></p>
+<p class="p1">/* -------------------- 2. CARD &amp; GENERAL STYLES -------------------- */</p>
+<p class="p1">.card{</p>
+<p class="p1"><span class="Apple-converted-space">    </span>background:var(--card);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>border-radius:16px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>padding:20px 24px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>box-shadow:var(--card-shadow);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>margin-bottom:24px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>transition: all 0.3s ease;</p>
+<p class="p1">}</p>
+<p class="p1">.card:hover {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08), 0 2px 4px rgba(0, 0, 0, 0.04);</p>
+<p class="p1">}</p>
+<p class="p1">h2{margin:0 0 16px;font-size:1.3rem;color:var(--primary);border-bottom: 2px solid var(--primary-light); padding-bottom: 8px;}</p>
+<p class="p1">h3{margin:10px 0; font-size: 1.1rem; color: var(--text);}</p>
+<p class="p2"><br></p>
+<p class="p2"><br></p>
+<p class="p1">/* -------------------- 3. INPUT &amp; BUTTON STYLES -------------------- */</p>
+<p class="p1">input,textarea,select,button{</p>
+<p class="p1"><span class="Apple-converted-space">    </span>width:100%;padding:12px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>border-radius:12px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>border:1px solid var(--border);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>font-family:inherit;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>font-size:1rem;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>transition: all 0.2s ease;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>background: var(--bg);</p>
+<p class="p1">}</p>
+<p class="p1">input:focus, textarea:focus, select:focus{</p>
+<p class="p1"><span class="Apple-converted-space">    </span>outline:none;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>border-color:var(--primary);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>box-shadow: 0 0 0 2px var(--primary-light);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>background: var(--card);</p>
+<p class="p1">}</p>
+<p class="p1">textarea{min-height:100px; resize:vertical; margin-bottom: 12px;}</p>
+<p class="p1">input[type="file"]{padding: 8px;}</p>
+<p class="p1">label.muted{display:block; margin-top:12px; margin-bottom: 4px; font-size: 0.9rem; color: var(--muted);}</p>
+<p class="p2"><br></p>
+<p class="p1">/* Buttons */</p>
+<p class="p1">button{cursor:pointer; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; border: none !important;}</p>
+<p class="p1">button.primary{background:var(--primary);color:#fff;}</p>
+<p class="p1">button.primary:hover{background: #3730a3;} /* Darken on hover */</p>
+<p class="p1">button.primary:active{box-shadow: inset 0 2px 4px rgba(0,0,0,0.15);}</p>
+<p class="p2"><br></p>
+<p class="p1">button.ghost{background:var(--primary-light);border:1px solid #e0e7ff; color:var(--primary); margin-top: 8px;}</p>
+<p class="p1">button.ghost:hover{background: #d4e0ff; color: #3730a3;}</p>
+<p class="p1">button.danger{background:var(--danger-light);color:var(--danger);}</p>
+<p class="p1">button.danger:hover{background: #fecaca; color: #b91c1c;}</p>
+<p class="p1">button.success{background:var(--success-light);color:var(--success);}</p>
+<p class="p1">button.success:hover{background: #a7f3d0; color: #065f46;}</p>
+<p class="p1">button.warning{background:var(--warning-light);color:var(--warning);}</p>
+<p class="p1">button.warning:hover{background: #fde68a; color: #a16207;}</p>
+<p class="p2"><br></p>
+<p class="p1">/* CSS cho nút bị vô hiệu hóa */</p>
+<p class="p1">button:disabled {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>opacity: 0.6;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>cursor: not-allowed;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>box-shadow: none;</p>
+<p class="p1">}</p>
+<p class="p1">.muted{color: var(--muted);}</p>
+<p class="p2"><br></p>
+<p class="p1">/* -------------------- 4. LIBRARY GRID -------------------- */</p>
+<p class="p1">.library-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:15px}</p>
+<p class="p2"><br></p>
+<p class="p1">/* CSS ĐÃ THÊM: Giới hạn chiều cao cho Kho bài đã lưu */</p>
+<p class="p1">#library {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>max-height: 700px;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>overflow-y: auto; <span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>padding-right: 10px;<span class="Apple-converted-space"> </span></p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">.library-item{</p>
+<p class="p1"><span class="Apple-converted-space">    </span>background:var(--card);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>padding:12px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>border-radius:16px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>cursor:pointer;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>box-shadow:var(--card-shadow);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>display:flex;flex-direction:column;align-items:center;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>overflow:hidden;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>transition:transform .3s ease, box-shadow .3s ease;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>position:relative;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>border: 1px solid var(--border);</p>
+<p class="p1">}</p>
+<p class="p1">.library-item:hover{</p>
+<p class="p1"><span class="Apple-converted-space">    </span>transform:scale(1.05);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>box-shadow: 0 8px 20px rgba(0,0,0,0.1);</p>
+<p class="p1">}</p>
+<p class="p1">.library-item img{width:100%;height:120px;object-fit:cover;border-radius:10px;margin-bottom:8px;border: 1px solid var(--border);}</p>
+<p class="p1">.library-item &gt; div:first-child{</p>
+<p class="p1"><span class="Apple-converted-space">    </span>width: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>flex-direction: column;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>align-items: center;</p>
+<p class="p1">}</p>
+<p class="p1">.library-item div:nth-child(2){</p>
+<p class="p1"><span class="Apple-converted-space">    </span>text-align:center;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>overflow:hidden;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>text-overflow:ellipsis;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>font-size:15px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>height:2.6em; /* 2 lines * 1.3em line-height */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>line-height:1.3em;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>display:-webkit-box;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>-webkit-line-clamp:2;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>-webkit-box-orient:vertical;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>color: var(--text);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>font-weight: 500;</p>
+<p class="p1">}</p>
+<p class="p1">.delete-one{</p>
+<p class="p1"><span class="Apple-converted-space">    </span>position:absolute;top:6px;right:6px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>background:var(--danger-light);color:var(--danger);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>border-radius:999px;width:24px;height:24px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>font-size:14px;line-height:24px;text-align:center;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>cursor:pointer;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>box-shadow:0 2px 6px rgba(0,0,0,.1);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>transition:all .2s;</p>
+<p class="p1">}</p>
+<p class="p1">.delete-one:hover{</p>
+<p class="p1"><span class="Apple-converted-space">    </span>background:var(--danger);color:#fff;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>transform:scale(1.2);</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">/* -------------------- 5. MODAL -------------------- */</p>
+<p class="p1">.modal{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.7);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .3s}</p>
+<p class="p1">.modal.active{opacity:1;pointer-events:auto}</p>
+<p class="p1">.modal-content{</p>
+<p class="p1"><span class="Apple-converted-space">    </span>background:#fff;padding:28px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>border-radius:24px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>max-width:900px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>width:92%;max-height:90%;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>overflow-y:auto;position:relative;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>box-shadow: 0 10px 30px rgba(0,0,0,0.3);</p>
+<p class="p1">}</p>
+<p class="p1">.modal-content img{max-width:100%;border-radius:16px;margin-top:16px;box-shadow: 0 2px 8px rgba(0,0,0,0.1);transition:transform .25s ease, box-shadow .25s ease;transform-origin:center top; cursor:zoom-in;}</p>
+<p class="p1">.modal-content img.zoomed{transform:scale(1.8);box-shadow:0 25px 50px rgba(0,0,0,.4);cursor:zoom-out}</p>
+<p class="p1">.close-btn{</p>
+<p class="p1"><span class="Apple-converted-space">    </span>position:absolute;top:16px;right:16px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>background:var(--bg);border:none;color:var(--muted);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>width:32px;height:32px;border-radius:999px;cursor:pointer;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>font-size:16px;line-height:32px;text-align:center;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>transition:all .2s;</p>
+<p class="p1">}</p>
+<p class="p1">.close-btn:hover{background:var(--danger);color:#fff;transform:scale(1.1)}</p>
+<p class="p2"><br></p>
+<p class="p1">/* Nút Sửa và Xóa trong Modal */</p>
+<p class="p1">#modalEdit, #modalDelete{</p>
+<p class="p1"><span class="Apple-converted-space">    </span>position:absolute;top:16px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>border-radius:999px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>width:32px;height:32px;font-size:16px;line-height:32px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>text-align:center;cursor:pointer;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>box-shadow:0 2px 6px rgba(0,0,0,.15);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>transition:all .2s;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>display:none;</p>
+<p class="p1">}</p>
+<p class="p1">#modalEdit{right:60px; background:var(--primary-light); color:var(--primary);}</p>
+<p class="p1">#modalEdit:hover{background:var(--primary);color:#fff;transform:scale(1.1)}</p>
+<p class="p1">#modalDelete{right:104px; background:var(--danger-light); color:var(--danger);}</p>
+<p class="p1">#modalDelete:hover{background:var(--danger);color:#fff;transform:scale(1.1)}</p>
+<p class="p2"><br></p>
+<p class="p2"><br></p>
+<p class="p1">/* -------------------- 6. REVIEW LIST (Original) -------------------- */</p>
+<p class="p1">.countdown{font-weight:700;font-size:1.2rem;margin-bottom:12px;color:var(--primary);}</p>
+<p class="p1">#countdown b{color: var(--danger); font-size: 1.4rem; font-weight: 700;} /* Nhấn mạnh số */</p>
+<p class="p2"><br></p>
+<p class="p1">/* CSS ĐÃ THÊM: Giới hạn chiều cao cho Danh sách cần ôn */</p>
+<p class="p1">#reviewList {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>max-height: 400px;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>overflow-y: auto;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>padding-right: 10px;</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">#reviewList &gt; div{</p>
+<p class="p1"><span class="Apple-converted-space">    </span>display:flex;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>justify-content:space-between;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>align-items:center;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>padding:10px 15px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>border-radius:8px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>margin-bottom:8px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>background:var(--primary-light);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>border:1px solid #c7d2fe;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>cursor:pointer;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>transition: background 0.2s;</p>
+<p class="p1">}</p>
+<p class="p1">#reviewList &gt; div:hover{</p>
+<p class="p1"><span class="Apple-converted-space">    </span>background: #d4e0ff;</p>
+<p class="p1">}</p>
+<p class="p1">#reviewList b{</p>
+<p class="p1"><span class="Apple-converted-space">    </span>font-size:1.05rem;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>color:var(--text);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>font-weight:600;</p>
+<p class="p1">}</p>
+<p class="p1">#reviewList span{</p>
+<p class="p1"><span class="Apple-converted-space">    </span>font-size:0.9rem;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>color:var(--primary);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>font-weight:600;</p>
+<p class="p1">}</p>
+<p class="p1">.progress{</p>
+<p class="p1"><span class="Apple-converted-space">    </span>height: 6px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>background: var(--border);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>border-radius: 999px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>overflow: hidden;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>margin-top: 5px;</p>
+<p class="p1">}</p>
+<p class="p1">.progress span{</p>
+<p class="p1"><span class="Apple-converted-space">    </span>display: block;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>height: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>background: var(--primary);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>transition: width 0.5s ease;</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">/* -------------------- 7. ACTIVE RECALL STYLES -------------------- */</p>
+<p class="p1">.solution-container{</p>
+<p class="p1"><span class="Apple-converted-space">    </span>margin-top:10px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>padding:18px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>border-radius:12px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>background:#f9fafb;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>border:1px solid var(--border);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>transition: all 0.5s ease;</p>
+<p class="p1">}</p>
+<p class="p1">.solution-hidden &gt; div {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>color: transparent;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>filter: blur(8px); /* Giảm blur cho hiệu ứng tinh tế hơn */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>user-select: none;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>cursor: default;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>transition: all 0.5s ease;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>display: block;</p>
+<p class="p1">}</p>
+<p class="p1">.solution-unlocked {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>background: #eef2ff; /* Light primary background khi mở khóa */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>border-color: var(--primary-light);</p>
+<p class="p1">}</p>
+<p class="p1">.solution-unlocked &gt; div {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>color: var(--text) !important;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>filter: none !important;</p>
+<p class="p1">}</p>
+<p class="p1">#recallArea textarea{</p>
+<p class="p1"><span class="Apple-converted-space">    </span>min-height: 80px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>margin-bottom: 10px;</p>
+<p class="p1">}</p>
+<p class="p1">#revealSolutionBtn {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>padding: 10px 18px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>width: auto !important;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>display: inline-block !important;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>font-size: 0.9rem;</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">/* Feedback Buttons */</p>
+<p class="p1">#feedbackButtons{</p>
+<p class="p1"><span class="Apple-converted-space">    </span>margin-top:20px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>padding-top:10px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>border-top:1px dashed var(--border);</p>
+<p class="p1">}</p>
+<p class="p1">#feedbackButtons button{</p>
+<p class="p1"><span class="Apple-converted-space">    </span>padding: 10px 8px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>font-size: 0.85rem;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>line-height: 1.2;</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">/* -------------------- 8. OVERVIEW -------------------- */</p>
+<p class="p1">#overview .muted{font-size: 0.9rem;}</p>
+<p class="p1">#overview b{line-height: 1;}</p>
+<p class="p1">#overview h3{margin-top: 20px; font-size: 1.1rem; color: var(--text);}</p>
+<p class="p1">#overview &gt; div &gt; div {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>padding: 10px 15px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>border-radius: 12px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>background: var(--primary-light);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>border: 1px solid var(--primary-light);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>transition: transform 0.2s ease;</p>
+<p class="p1">}</p>
+<p class="p1">#overview &gt; div &gt; div:hover{</p>
+<p class="p1"><span class="Apple-converted-space">    </span>transform: translateY(-2px);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>box-shadow: 0 4px 8px rgba(0,0,0,0.05);</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">/* Phân loại Trạng thái Ghi nhớ */</p>
+<p class="p1">#overview &gt; div:nth-child(3) &gt; div {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>padding: 12px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>border-radius: 12px;</p>
+<p class="p1">}</p>
+<p class="p1">#overview &gt; div:nth-child(3) &gt; div:nth-child(1) {background: var(--danger-light); border-color: #fecaca;} /* Cần Ôn Gấp */</p>
+<p class="p1">#overview &gt; div:nth-child(3) &gt; div:nth-child(2) {background: var(--warning-light); border-color: #fde68a;} /* Ổn định */</p>
+<p class="p1">#overview &gt; div:nth-child(3) &gt; div:nth-child(3) {background: var(--success-light); border-color: #a7f3d0;} /* Đã Nhớ Tốt */</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body&gt;</p>
+<p class="p1">&lt;header&gt;</p>
+<p class="p1">&lt;div class="wrap"&gt;</p>
+<p class="p1">&lt;b style="color: var(--primary); font-size: 1.4rem;"&gt;📘 Smart Review 2.0&lt;/b&gt;</p>
+<p class="p1">&lt;button class="danger" onclick="deleteAll()"&gt;Xóa toàn bộ&lt;/button&gt;</p>
+<p class="p1">&lt;/div&gt;</p>
+<p class="p1">&lt;/header&gt;</p>
+<p class="p1">&lt;main&gt;</p>
+<p class="p1">&lt;div class="card countdown" id="countdown"&gt;Đang tính toán...&lt;/div&gt;</p>
+<p class="p1">&lt;div id="overview" class="card"&gt;&lt;/div&gt;<span class="Apple-converted-space"> </span></p>
+<p class="p1">&lt;div class="card"&gt;</p>
+<p class="p1">&lt;h2&gt;📚 Kho bài đã lưu&lt;/h2&gt;</p>
+<p class="p1">&lt;div id="libraryControls" style="display:flex; gap:12px; margin-bottom:20px; flex-wrap:wrap;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;input type="text" id="filterTopic" placeholder="Lọc theo Chủ đề" style="flex:1; min-width:140px;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;input type="text" id="filterCategory" placeholder="Lọc theo Mục" style="flex:1; min-width:140px;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;select id="filterDifficulty" style="width:140px;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;option value=""&gt;Lọc theo Độ khó&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;option value="1"&gt;Dễ&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;option value="2"&gt;Trung bình&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;option value="3"&gt;Khó&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;option value="4"&gt;Rất khó&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/select&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;select id="sortBy" style="width:180px;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;option value="id"&gt;Sắp xếp: Mới nhất&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;option value="topic"&gt;Sắp xếp: Chủ đề (A-Z)&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;option value="category"&gt;Sắp xếp: Mục (A-Z)&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;option value="easiness"&gt;Sắp xếp: Độ dễ (EF thấp nhất)&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/select&gt;</p>
+<p class="p1">&lt;/div&gt;</p>
+<p class="p1">&lt;div class="library-grid" id="library"&gt;&lt;/div&gt;</p>
+<p class="p1">&lt;/div&gt;</p>
+<p class="p1">&lt;div class="card"&gt;</p>
+<p class="p1">&lt;h2&gt;➕ Thêm / Sửa Bài&lt;/h2&gt;</p>
+<p class="p1">&lt;textarea id="problem" placeholder="Nội dung bài toán"&gt;&lt;/textarea&gt;</p>
+<p class="p1">&lt;textarea id="solution" placeholder="Hướng giải / ý tưởng"&gt;&lt;/textarea&gt;</p>
+<p class="p1">&lt;input id="topic" placeholder="Chủ đề (VD: Tích phân, Hình học Oxyz...)" /&gt;</p>
+<p class="p1">&lt;input id="category" placeholder="Phân loại / Mục (VD: Dạng 1, Câu 40...)" /&gt;</p>
+<p class="p1">&lt;select id="difficulty" style="margin-bottom: 12px;"&gt;</p>
+<p class="p1">&lt;option value="1"&gt;1 - Dễ (Lý thuyết cơ bản)&lt;/option&gt;</p>
+<p class="p1">&lt;option value="2"&gt;2 - Trung bình (Vận dụng)&lt;/option&gt;</p>
+<p class="p1">&lt;option value="3"&gt;3 - Khó (Vận dụng cao)&lt;/option&gt;</p>
+<p class="p1">&lt;option value="4"&gt;4 - Rất khó (Câu phân loại)&lt;/option&gt;</p>
+<p class="p1">&lt;/select&gt;</p>
+<p class="p1">&lt;label class="muted"&gt;Ảnh bài toán (Tùy chọn)&lt;/label&gt;</p>
+<p class="p1">&lt;input type="file" id="image" accept="image/*" /&gt;</p>
+<p class="p1">&lt;img id="preview" style="max-width:100%; border-radius:12px; margin: 12px 0; box-shadow: var(--card-shadow);" /&gt;</p>
+<p class="p1">&lt;div style="display: flex; gap: 10px; margin-top: 15px;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;button class="primary" onclick="saveProblem()" style="flex: 2;"&gt;💾 Lưu Bài&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;button class="ghost" onclick="resetForm()" style="flex: 1;"&gt;↩️ Hủy Bỏ&lt;/button&gt;</p>
+<p class="p1">&lt;/div&gt;</p>
+<p class="p1">&lt;/div&gt;</p>
+<p class="p1">&lt;div class="card"&gt;</p>
+<p class="p1">&lt;h2&gt;📅 Hôm nay cần ôn&lt;/h2&gt;</p>
+<p class="p1">&lt;div class="muted" style="margin-bottom: 10px;"&gt;🧠 Theo lịch ngắt quãng thông minh – bấm vào bài để ôn ngay&lt;/div&gt;</p>
+<p class="p1">&lt;div id="reviewList"&gt;&lt;/div&gt;</p>
+<p class="p1">&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;div class="modal" id="modal"&gt;</p>
+<p class="p1">&lt;div class="modal-content" id="modalContent"&gt;</p>
+<p class="p1">&lt;button id="modalDelete" class="delete-one" onclick="deleteProblemAndClose(currentModalId)"&gt;🗑️&lt;/button&gt;</p>
+<p class="p1">&lt;button id="modalEdit" class="delete-one" onclick="editProblem(currentModalId)"&gt;✍️&lt;/button&gt;</p>
+<p class="p1">&lt;button class="close-btn" onclick="closeModal()"&gt;✕&lt;/button&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;div id="modalControls" style="display:none;margin-bottom:10px" class="muted"&gt;Zoom Ảnh: &lt;input type="range" id="zoomRange" min="50" max="200" value="100" style="width:160px;vertical-align:middle"&gt; &lt;span id="zoomValue"&gt;100%&lt;/span&gt;&lt;/div&gt;</p>
+<p class="p1">&lt;div id="modalBody"&gt;&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;div id="recallArea" style="margin-top:15px;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;div id="feedbackButtons" style="display:none; margin-top:20px; padding-top:10px; border-top:1px dashed var(--border);"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div style='display:flex;gap:8px;margin:6px 0'&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;button class='success' style="flex:1" onclick="event.stopPropagation();setMemoryTag(currentModalId,'perfect_success')"&gt;✅ Đúng, nhanh (Q=5)&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;button class='ghost' style="flex:1" onclick="event.stopPropagation();setMemoryTag(currentModalId,'slow_success')"&gt;🟡 Đúng, chậm (Q=4)&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div style='display:flex;gap:8px;margin:6px 0'&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;button class='warning' style="flex:1" onclick="event.stopPropagation();setMemoryTag(currentModalId,'struggle')"&gt;😐 Lúng túng (Q=3)&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;button class='danger' style="flex:1" onclick="event.stopPropagation();setMemoryTag(currentModalId,'forget')"&gt;❌ Quên (Q=1)&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1">&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;/div&gt;</p>
+<p class="p1">&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;script&gt;</p>
+<p class="p1">let problems=JSON.parse(localStorage.getItem('problems')||'[]');</p>
+<p class="p1">let editingId=null;<span class="Apple-converted-space"> </span></p>
+<p class="p1">let currentModalId=null;</p>
+<p class="p2"><br></p>
+<p class="p1">// State cho Filtering/Sorting</p>
+<p class="p1">let currentFilter = {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>topic: '',</p>
+<p class="p1"><span class="Apple-converted-space">    </span>category: '',<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>difficulty: '',</p>
+<p class="p1"><span class="Apple-converted-space">    </span>sortBy: 'id'<span class="Apple-converted-space"> </span></p>
+<p class="p1">};</p>
+<p class="p2"><br></p>
+<p class="p1">// Lắng nghe sự kiện thay đổi hình ảnh</p>
+<p class="p1">const imageInput = document.getElementById('image');</p>
+<p class="p1">const previewImage = document.getElementById('preview');</p>
+<p class="p1">imageInput.onchange=()=&gt;{<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>const f=imageInput.files[0];<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>if(!f) { previewImage.src = ''; return; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const r=new FileReader();<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>r.onload=()=&gt;previewImage.src=r.result;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>r.readAsDataURL(f);</p>
+<p class="p1">}<span class="Apple-converted-space"> </span></p>
+<p class="p2"><br></p>
+<p class="p1">function today(){return new Date().toISOString().slice(0,10)}</p>
+<p class="p1">function save(){localStorage.setItem('problems',JSON.stringify(problems))}</p>
+<p class="p2"><br></p>
+<p class="p1">function saveProblem(){<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>const data={</p>
+<p class="p1"><span class="Apple-converted-space">        </span>problem:problem.value.trim(),</p>
+<p class="p1"><span class="Apple-converted-space">        </span>solution:solution.value.trim(),</p>
+<p class="p1"><span class="Apple-converted-space">        </span>topic:topic.value.trim(),</p>
+<p class="p1"><span class="Apple-converted-space">        </span>category:document.getElementById('category').value.trim(),</p>
+<p class="p1"><span class="Apple-converted-space">        </span>difficulty:+difficulty.value</p>
+<p class="p1"><span class="Apple-converted-space">    </span>};<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>if(!data.problem) return alert('Chưa nhập bài');<span class="Apple-converted-space"> </span></p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>let targetProblem;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>if(editingId){</p>
+<p class="p1"><span class="Apple-converted-space">        </span>targetProblem = problems.find(p=&gt;p.id===editingId);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>if(targetProblem) Object.assign(targetProblem,data);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Khởi tạo biến cho SM-2: reps=0, interval=1, easiness=2.5 (EF), history=[]</p>
+<p class="p1"><span class="Apple-converted-space">        </span>targetProblem = {id:Date.now(),...data,reps:0,interval:1,easiness:2.5,nextReview:today(),image:null, history: []};</p>
+<p class="p1"><span class="Apple-converted-space">        </span>problems.push(targetProblem);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}<span class="Apple-converted-space"> </span></p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>const img=imageInput.files[0];<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>if(img){<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>const r=new FileReader();<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>r.onload=()=&gt;{</p>
+<p class="p1"><span class="Apple-converted-space">            </span>targetProblem.image=r.result;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>finalize();</p>
+<p class="p1"><span class="Apple-converted-space">        </span>};<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>r.readAsDataURL(img);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>if (editingId &amp;&amp; !imageInput.value) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>// Giữ lại ảnh cũ nếu không có ảnh mới được chọn</p>
+<p class="p1"><span class="Apple-converted-space">        </span>} else if (editingId &amp;&amp; !img) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>// Xóa ảnh nếu ô input file trống</p>
+<p class="p1"><span class="Apple-converted-space">            </span>targetProblem.image = null;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>finalize();</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>editingId=null;</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">function finalize(){</p>
+<p class="p1"><span class="Apple-converted-space">    </span>save();</p>
+<p class="p1"><span class="Apple-converted-space">    </span>resetForm();</p>
+<p class="p1"><span class="Apple-converted-space">    </span>render();</p>
+<p class="p1"><span class="Apple-converted-space">    </span>renderReview();</p>
+<p class="p1"><span class="Apple-converted-space">    </span>renderOverview();<span class="Apple-converted-space"> </span></p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">function resetForm(){</p>
+<p class="p1"><span class="Apple-converted-space">    </span>document.getElementById('problem').value='';</p>
+<p class="p1"><span class="Apple-converted-space">    </span>document.getElementById('solution').value='';</p>
+<p class="p1"><span class="Apple-converted-space">    </span>document.getElementById('topic').value='';</p>
+<p class="p1"><span class="Apple-converted-space">    </span>document.getElementById('category').value='';</p>
+<p class="p1"><span class="Apple-converted-space">    </span>document.getElementById('difficulty').value=1;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>document.getElementById('image').value='';</p>
+<p class="p1"><span class="Apple-converted-space">    </span>document.getElementById('preview').src='';</p>
+<p class="p1"><span class="Apple-converted-space">    </span>editingId = null;</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">function editProblem(id){</p>
+<p class="p1"><span class="Apple-converted-space">    </span>closeModal();<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>const p = problems.find(x =&gt; x.id === id);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>if (!p) return;</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>editingId = id;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>document.getElementById('problem').value = p.problem;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>document.getElementById('solution').value = p.solution;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>document.getElementById('topic').value = p.topic;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>document.getElementById('category').value = p.category || '';</p>
+<p class="p1"><span class="Apple-converted-space">    </span>document.getElementById('difficulty').value = p.difficulty;</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>const previewImg = document.getElementById('preview');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>if (p.image) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>previewImg.src = p.image;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>previewImg.src = '';</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// Cuộn lên form</p>
+<p class="p1"><span class="Apple-converted-space">    </span>window.scrollTo({top: document.getElementById('problem').offsetTop - 20, behavior: 'smooth'});</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">function deleteProblem(id){</p>
+<p class="p1"><span class="Apple-converted-space">    </span>problems=problems.filter(p=&gt;p.id!==id);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>save();</p>
+<p class="p1"><span class="Apple-converted-space">    </span>render();</p>
+<p class="p1"><span class="Apple-converted-space">    </span>renderReview();</p>
+<p class="p1"><span class="Apple-converted-space">    </span>renderOverview();<span class="Apple-converted-space"> </span></p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">function deleteProblemAndClose(id){</p>
+<p class="p1"><span class="Apple-converted-space">    </span>if(confirm('Xóa bài này?')){</p>
+<p class="p1"><span class="Apple-converted-space">        </span>deleteProblem(id);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>closeModal();</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p2"><br></p>
+<p class="p1">function deleteAll(){</p>
+<p class="p1"><span class="Apple-converted-space">    </span>if(confirm('Xóa toàn bộ dữ liệu?')){</p>
+<p class="p1"><span class="Apple-converted-space">        </span>problems=[];</p>
+<p class="p1"><span class="Apple-converted-space">        </span>save();</p>
+<p class="p1"><span class="Apple-converted-space">        </span>render();</p>
+<p class="p1"><span class="Apple-converted-space">        </span>renderReview();</p>
+<p class="p1"><span class="Apple-converted-space">        </span>renderOverview();<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">// ------------------------------------------------</p>
+<p class="p1">// HÀM TÍNH TOÁN STREAK VÀ RETENTION RATE</p>
+<p class="p1">// ------------------------------------------------</p>
+<p class="p1">function calculateStreak() {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>let reviewDates = new Set();</p>
+<p class="p1"><span class="Apple-converted-space">    </span>problems.forEach(p =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>if (p.history) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>p.history.forEach(h =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>if (h.q &gt;= 3) {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>reviewDates.add(h.date);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>});</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>if (reviewDates.size === 0) return 0;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>const sortedDates = Array.from(reviewDates).sort().reverse();</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const todayStr = today();</p>
+<p class="p1"><span class="Apple-converted-space">    </span>let currentStreak = 0;</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>const hasReviewedToday = reviewDates.has(todayStr);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>let checkDate = new Date(todayStr);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>if (hasReviewedToday) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>currentStreak = 1;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>checkDate.setDate(checkDate.getDate() - 1);<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>checkDate.setDate(checkDate.getDate() - 1);<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>const yesterdayStr = checkDate.toISOString().slice(0, 10);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>if (!reviewDates.has(yesterdayStr)) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>return 0;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>while (true) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const dateStr = checkDate.toISOString().slice(0, 10);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>if (reviewDates.has(dateStr)) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>currentStreak++;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>checkDate.setDate(checkDate.getDate() - 1);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>break;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>return currentStreak;</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">function calculateRetentionRate() {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const thirtyDaysAgo = new Date();</p>
+<p class="p1"><span class="Apple-converted-space">    </span>thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const thirtyDaysAgoStr = thirtyDaysAgo.toISOString().slice(0, 10);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>let totalReviews = 0;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>let successfulReviews = 0;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>problems.forEach(p =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>if (p.history) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>p.history.forEach(h =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>if (h.date &gt;= thirtyDaysAgoStr) {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>totalReviews++;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>if (h.q &gt;= 4) {<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">                        </span>successfulReviews++;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">                </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>});</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>if (totalReviews === 0) return {rate: 0, count: 0};</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>const rate = ((successfulReviews / totalReviews) * 100).toFixed(0);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>return {rate: rate, count: totalReviews};</p>
+<p class="p1">}</p>
+<p class="p1">// ------------------------------------------------</p>
+<p class="p2"><br></p>
+<p class="p1">// HÀM ĐÃ SỬA: SỬ DỤNG 2.8 LÀM MỐC 100%</p>
+<p class="p1">function memoryPercent(p){</p>
+<p class="p1"><span class="Apple-converted-space">    </span>// Sử dụng 2.8 làm mốc 100% để người dùng có thể đạt 100%</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const normalizedMaxEF = 2.8;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>const memory = Math.round((p.easiness / normalizedMaxEF) * 100);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>// Giới hạn hiển thị tối đa là 100%</p>
+<p class="p1"><span class="Apple-converted-space">    </span>return Math.min(100, memory);</p>
+<p class="p1">}</p>
+<p class="p1">// ------------------------------------------------</p>
+<p class="p2"><br></p>
+<p class="p1">function priority(p){<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>let bonus=p.memoryTag==='forget'?3:p.memoryTag==='struggle'?2:0;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>return ((new Date()-new Date(p.nextReview))/(864e5)) + (100-memoryPercent(p))/25 + p.difficulty*0.5 + bonus;<span class="Apple-converted-space"> </span></p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">function daysUntil(dateStr) {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const todayDate = new Date(today());</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const targetDate = new Date(dateStr);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>todayDate.setHours(0, 0, 0, 0);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>targetDate.setHours(0, 0, 0, 0);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>const diffTime = targetDate - todayDate;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>return Math.ceil(diffTime / (1000 * 60 * 60 * 24));</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">// ------------------------------------------------</p>
+<p class="p1">// HÀM ÔN TẬP SM-2 (4 cấp độ)</p>
+<p class="p1">// ------------------------------------------------</p>
+<p class="p1">function setMemoryTag(id, tag){</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const p = problems.find(x =&gt; x.id === id);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>if (!p) return;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>let Q;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>if (tag === 'perfect_success') Q = 5;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>else if (tag === 'slow_success') Q = 4;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>else if (tag === 'struggle') Q = 3;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>else Q = 1;<span class="Apple-converted-space"> </span></p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>p.memoryTag = tag;<span class="Apple-converted-space"> </span></p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>const Q_diff = 5 - Q;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>p.easiness = p.easiness + 0.1 - Q_diff * (0.08 + Q_diff * 0.02);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>p.easiness = Math.max(1.3, p.easiness);<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>p.easiness = parseFloat(p.easiness.toFixed(2));<span class="Apple-converted-space"> </span></p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>if (Q &gt;= 4) {<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>p.reps = (p.reps || 0) + 1;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>if (p.reps === 1) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>p.interval = 1;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>} else if (p.reps === 2) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>p.interval = 6;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>p.interval = Math.round(p.interval * p.easiness);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>} else {<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>p.reps = 0;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>p.interval = 1;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>const next = new Date();</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const days = Math.max(1, p.interval);<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>next.setDate(next.getDate() + days);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>p.nextReview = next.toISOString().slice(0, 10);</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>if (!p.history) p.history = [];</p>
+<p class="p1"><span class="Apple-converted-space">    </span>p.history.push({</p>
+<p class="p1"><span class="Apple-converted-space">        </span>date: today(),</p>
+<p class="p1"><span class="Apple-converted-space">        </span>q: Q,</p>
+<p class="p1"><span class="Apple-converted-space">        </span>ef: p.easiness</p>
+<p class="p1"><span class="Apple-converted-space">    </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>closeModal();</p>
+<p class="p1"><span class="Apple-converted-space">    </span>save();</p>
+<p class="p1"><span class="Apple-converted-space">    </span>renderReview();<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>renderOverview();<span class="Apple-converted-space"> </span></p>
+<p class="p1">}</p>
+<p class="p1">// ------------------------------------------------</p>
+<p class="p2"><br></p>
+<p class="p1">// ------------------------------------------------</p>
+<p class="p1">// HÀM RENDER THỐNG KÊ (Original)<span class="Apple-converted-space"> </span></p>
+<p class="p1">// ------------------------------------------------</p>
+<p class="p1">function renderOverview() {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const overviewDiv = document.getElementById('overview');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const totalProblems = problems.length;</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>if (totalProblems === 0) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>overviewDiv.innerHTML = '&lt;h2&gt;📊 Thống kê ôn tập&lt;/h2&gt;&lt;div class="muted"&gt;Bắt đầu nhập bài để xem thống kê!&lt;/div&gt;';</p>
+<p class="p1"><span class="Apple-converted-space">        </span>return;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>const totalEF = problems.reduce((sum, p) =&gt; sum + (p.easiness || 2.5), 0);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const avgEF = (totalEF / totalProblems).toFixed(2);</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>let lowEFCount = 0;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>let mediumEFCount = 0;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>let highEFCount = 0;<span class="Apple-converted-space"> </span></p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>problems.forEach(p =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const ef = p.easiness || 2.5;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>if (ef &lt; 1.8) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>lowEFCount++;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>} else if (ef &lt; 2.3) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>mediumEFCount++;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>highEFCount++;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>});</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>const lowEFPercent = ((lowEFCount / totalProblems) * 100).toFixed(0);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const mediumEFPercent = ((mediumEFCount / totalProblems) * 100).toFixed(0);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const highEFPercent = ((highEFCount / totalProblems) * 100).toFixed(0);</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>const avgEFColor = avgEF &lt; 1.8 ? 'var(--danger)' : avgEF &lt; 2.3 ? 'var(--warning)' : 'var(--success)';</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>const streak = calculateStreak();</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const retention = calculateRetentionRate();</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>overviewDiv.innerHTML = `</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;h2&gt;📊 Thống kê ôn tập&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div style="display:flex; gap: 20px; flex-wrap: wrap; margin-bottom: 15px;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="muted"&gt;Tổng số bài đã lưu:&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;b style="font-size: 1.5rem; color: var(--primary);"&gt;${totalProblems}&lt;/b&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="muted"&gt;EF Trung bình:&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;b style="font-size: 1.5rem; color: ${avgEFColor};"&gt;${avgEF}&lt;/b&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="muted"&gt;🔥 Streak (Ngày liên tiếp):&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;b style="font-size: 1.5rem; color: ${streak &gt; 0 ? 'var(--warning)' : 'var(--muted)'};"&gt;${streak}&lt;/b&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="muted"&gt;Tỷ lệ Duy trì (30 ngày):&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;b style="font-size: 1.5rem; color: ${retention.rate &gt;= 80 ? 'var(--success)' : 'var(--danger)'};"&gt;${retention.rate}%&lt;/b&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="muted"&gt;(${retention.count} lần ôn)&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;h3 style="margin-top:10px; font-size: 1rem;"&gt;Phân loại Trạng thái Ghi nhớ (Theo EF)&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div style="display:flex; gap: 10px; margin-top: 10px; flex-wrap: wrap;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div style="flex:1; padding: 10px; border-radius: 8px; background: var(--danger-light); border: 1px solid #fecaca; min-width: 150px;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div style="font-weight: 600; color: #991b1b;"&gt;Cần Ôn Gấp (EF &lt; 1.8)&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div style="font-size: 1.2rem; margin-top: 5px;"&gt;${lowEFCount} bài (${lowEFPercent}%)&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div style="flex:1; padding: 10px; border-radius: 8px; background: var(--warning-light); border: 1px solid #fde68a; min-width: 150px;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div style="font-weight: 600; color: #a16207;"&gt;Ổn định (1.8 - 2.3)&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div style="font-size: 1.2rem; margin-top: 5px;"&gt;${mediumEFCount} bài (${mediumEFPercent}%)&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div style="flex:1; padding: 10px; border-radius: 8px; background: var(--success-light); border: 1px solid #a7f3d0; min-width: 150px;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div style="font-weight: 600; color: #065f46;"&gt;Đã Nhớ Tốt (EF ≥ 2.3)&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div style="font-size: 1.2rem; margin-top: 5px;"&gt;${highEFCount} bài (${highEFPercent}%)&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>`;</p>
+<p class="p1">}</p>
+<p class="p1">// ------------------------------------------------</p>
+<p class="p2"><br></p>
+<p class="p1">// HÀM RENDER THƯ VIỆN (Original)</p>
+<p class="p1">function render(){<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>const lib=document.getElementById('library');<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>lib.innerHTML='';<span class="Apple-converted-space"> </span></p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>let filteredProblems = problems.filter(p =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Lọc theo Chủ đề</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const topicMatch = !currentFilter.topic || (p.topic &amp;&amp; p.topic.toLowerCase().includes(currentFilter.topic.toLowerCase()));</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Lọc theo Mục (Category)</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const categoryMatch = !currentFilter.category || (p.category &amp;&amp; p.category.toLowerCase().includes(currentFilter.category.toLowerCase()));</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Lọc theo Độ khó</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const difficultyMatch = !currentFilter.difficulty || p.difficulty === +currentFilter.difficulty;</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>return topicMatch &amp;&amp; categoryMatch &amp;&amp; difficultyMatch;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// SẮP XẾP</p>
+<p class="p1"><span class="Apple-converted-space">    </span>filteredProblems.sort((a, b) =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>if (currentFilter.sortBy === 'topic') {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>return (a.topic || '').localeCompare(b.topic || '');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>} else if (currentFilter.sortBy === 'category') {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>return (a.category || '').localeCompare(b.category || '');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>} else if (currentFilter.sortBy === 'easiness') {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>return (a.easiness || 2.5) - (b.easiness || 2.5);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>return b.id - a.id;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>if(filteredProblems.length === 0 &amp;&amp; problems.length &gt; 0) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>lib.innerHTML = '&lt;div class="muted" style="text-align:center; width:100%;"&gt;Không tìm thấy bài tập nào phù hợp với bộ lọc.&lt;/div&gt;';</p>
+<p class="p1"><span class="Apple-converted-space">    </span>} else if (problems.length === 0) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>lib.innerHTML = '&lt;div class="muted" style="text-align:center; width:100%;"&gt;Kho bài tập trống. Hãy thêm bài mới!&lt;/div&gt;';</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>filteredProblems.forEach(p=&gt;{<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>const item=document.createElement('div');<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>item.className='library-item';<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>item.innerHTML=`</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div onclick="openModal(problems.find(x=&gt;x.id===${p.id}))"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>${p.image?`&lt;img src='${p.image}'&gt;`:''}</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div&gt;${p.problem}&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;button class='delete-one' onclick="event.stopPropagation();deleteProblem(${p.id})"&gt;🗑️&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>`;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>lib.appendChild(item);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>});</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">// ------------------------------------------------</p>
+<p class="p1">// HÀM RENDER REVIEW (Original)</p>
+<p class="p1">// ------------------------------------------------</p>
+<p class="p1">function renderReview(){<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>const reviewDiv=document.getElementById('reviewList');<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>reviewDiv.innerHTML='';<span class="Apple-converted-space"> </span></p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// Lọc và sắp xếp: Bài cần ôn hôm nay (nextReview &lt;= today)</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const reviewQueue = problems</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.filter(p =&gt; daysUntil(p.nextReview) &lt;= 0) // Lọc bài quá hạn hoặc đến hạn hôm nay</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.sort((a, b) =&gt; priority(b) - priority(a)); // Sắp xếp theo độ ưu tiên</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>if (reviewQueue.length === 0) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>reviewDiv.innerHTML = '&lt;div class="muted" style="text-align:center; padding: 20px;"&gt;🎉 Hôm nay bạn không có bài nào cần ôn. Tuyệt vời!&lt;/div&gt;';</p>
+<p class="p1"><span class="Apple-converted-space">        </span>return;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>reviewQueue.forEach(p =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const memoryScore = memoryPercent(p);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const days = daysUntil(p.nextReview);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>let statusText = '';</p>
+<p class="p1"><span class="Apple-converted-space">        </span>if (days &lt; 0) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>statusText = `⏳ Quá hạn ${Math.abs(days)} ngày`;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>} else if (days === 0) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>statusText = '🔥 Hôm nay';</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>const item = document.createElement('div');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>item.setAttribute('onclick', `openModal(problems.find(x=&gt;x.id===${p.id}))`);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>item.innerHTML = `</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;b&gt;${p.problem}&lt;/b&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="muted" style="font-size:0.85rem;"&gt;${p.topic || '—'} | Mục: ${p.category || '—'}&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="progress" style="width: 150px; margin-top: 8px;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span style="width: ${memoryScore}%; background: ${memoryScore &gt;= 80 ? 'var(--success)' : memoryScore &gt;= 50 ? 'var(--warning)' : 'var(--danger)'};"&gt;&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div style="text-align: right;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;span style="color: ${days &lt; 0 ? 'var(--danger)' : days === 0 ? 'var(--warning)' : 'var(--primary)'};"&gt;${statusText}&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="muted" style="margin-top:4px; font-size:0.8rem;"&gt;Ghi nhớ: ${memoryScore}%&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>`;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>reviewDiv.appendChild(item);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>});</p>
+<p class="p1">}</p>
+<p class="p1">// ------------------------------------------------</p>
+<p class="p2"><br></p>
+<p class="p1">// ------------------------------------------------</p>
+<p class="p1">// HÀM OPENMODAL (Original)</p>
+<p class="p1">// ------------------------------------------------</p>
+<p class="p1">function openModal(p){<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>currentModalId=p.id;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>const body=document.getElementById('modalBody');<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>const recallArea = document.getElementById('recallArea');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const feedbackButtons = document.getElementById('feedbackButtons');</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>const hasSolution = p.solution &amp;&amp; p.solution.trim();</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// Luôn tạo ra khung lời giải để tránh lỗi hiển thị</p>
+<p class="p1"><span class="Apple-converted-space">    </span>let solutionHtml = `</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div style="margin-top:16px;font-weight:600"&gt;🧠 Lời giải / Hướng suy nghĩ&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div id="solutionText" class="solution-container ${hasSolution ? 'solution-hidden' : 'solution-unlocked'}" style="${hasSolution ? '' : 'background: var(--warning-light); border-color: #fde68a;'}"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div style="font-family:'Inter',system-ui;font-size:15px;line-height:1.7;white-space:pre-line"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>${hasSolution ? p.solution : '💡 Bài toán này **chưa có lời giải**! Hãy bấm nút "Sửa" (✍️) để thêm nội dung.'}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>`;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>body.innerHTML=`</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;b style="font-size: 1.2rem;"&gt;${p.problem}&lt;/b&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class='muted'&gt;${p.topic||'—'} | ${p.category||'—'} | Độ khó ${p.difficulty} | Ôn lần tiếp theo: ${p.nextReview}&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class='muted'&gt;EF hiện tại: &lt;b&gt;${p.easiness.toFixed(2)}&lt;/b&gt; (Lặp thành công: ${p.reps} lần)&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>${p.image?`&lt;img id='modalImage' src='${p.image}' onclick='this.classList.toggle("zoomed"); document.getElementById("zoomRange").value = 100;'&gt;`:''}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>${solutionHtml}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>`;<span class="Apple-converted-space"> </span></p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// 1. Setup Active Recall Area (Chỉ hiển thị nếu có lời giải)</p>
+<p class="p1"><span class="Apple-converted-space">    </span>if (hasSolution) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>recallArea.style.display = 'block';</p>
+<p class="p1"><span class="Apple-converted-space">        </span>recallArea.innerHTML = `</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div style="font-weight:600; margin-top: 15px;"&gt;✏️ Kiểm tra Thu hồi Chủ động (Active Recall)&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;textarea id="activeRecallInput" placeholder="Tóm tắt ý tưởng, công thức, hoặc cách giải quyết bài toán này theo trí nhớ của bạn..."&gt;&lt;/textarea&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;button id="revealSolutionBtn" class="primary" onclick="revealSolution()"&gt;🔒 Đã Tự Kiểm Tra, Xem Lời giải&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>`;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>feedbackButtons.style.display = 'none';</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Luôn bật nút mở lời giải trong bản V1</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const revealBtn = document.getElementById('revealSolutionBtn');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>revealBtn.disabled = false;<span class="Apple-converted-space"> </span></p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Nếu không có lời giải, ẩn Active Recall và hiện nút phản hồi</p>
+<p class="p1"><span class="Apple-converted-space">        </span>recallArea.style.display = 'none';</p>
+<p class="p1"><span class="Apple-converted-space">        </span>feedbackButtons.style.display = 'block';<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// 2. Xử lý Zoom và Modal</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const ctrl=document.getElementById('modalControls');<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>const range=document.getElementById('zoomRange');<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>const val=document.getElementById('zoomValue');<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>if(p.image){<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>ctrl.style.display='block';<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>range.value=100;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>val.textContent='100%';<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>const img=document.getElementById('modalImage');<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>img.style.transform='scale(1)';<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>range.oninput=()=&gt;{<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>const z=range.value;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>img.style.transform=`scale(${z/100})`;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>val.textContent=z+'%';<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>};<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>ctrl.style.display='none';</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// Hiển thị nút Sửa/Xóa</p>
+<p class="p1"><span class="Apple-converted-space">    </span>document.getElementById('modalEdit').style.display = 'block';</p>
+<p class="p1"><span class="Apple-converted-space">    </span>document.getElementById('modalDelete').style.display = 'block';</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>document.getElementById('modal').classList.add('active');<span class="Apple-converted-space"> </span></p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">// ------------------------------------------------</p>
+<p class="p1">// HÀM REVEALSOLUTION (Original)</p>
+<p class="p1">// ------------------------------------------------</p>
+<p class="p1">function revealSolution() {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const solutionDiv = document.getElementById('solutionText');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const recallArea = document.getElementById('recallArea');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const feedbackButtons = document.getElementById('feedbackButtons');</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// Mở khóa lời giải</p>
+<p class="p1"><span class="Apple-converted-space">    </span>if (solutionDiv) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>solutionDiv.classList.remove('solution-hidden');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>solutionDiv.classList.add('solution-unlocked');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// Ẩn Active Recall, hiện nút phản hồi</p>
+<p class="p1"><span class="Apple-converted-space">    </span>recallArea.style.display = 'none';</p>
+<p class="p1"><span class="Apple-converted-space">    </span>feedbackButtons.style.display = 'block';</p>
+<p class="p1">}</p>
+<p class="p1">// ------------------------------------------------</p>
+<p class="p2"><br></p>
+<p class="p2"><br></p>
+<p class="p1">function closeModal(){<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>document.getElementById('modal').classList.remove('active');<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>document.getElementById('modalEdit').style.display='none';</p>
+<p class="p1"><span class="Apple-converted-space">    </span>document.getElementById('modalDelete').style.display='none';</p>
+<p class="p1"><span class="Apple-converted-space">    </span>currentModalId=null;<span class="Apple-converted-space"> </span></p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">// Khởi tạo ban đầu</p>
+<p class="p1">document.addEventListener('DOMContentLoaded', () =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>renderOverview();</p>
+<p class="p1"><span class="Apple-converted-space">    </span>render();</p>
+<p class="p1"><span class="Apple-converted-space">    </span>renderReview();</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// Thiết lập bộ lọc/sắp xếp</p>
+<p class="p1"><span class="Apple-converted-space">    </span>document.getElementById('filterTopic').oninput = (e) =&gt; { currentFilter.topic = e.target.value; render(); };</p>
+<p class="p1"><span class="Apple-converted-space">    </span>document.getElementById('filterCategory').oninput = (e) =&gt; { currentFilter.category = e.target.value; render(); };</p>
+<p class="p1"><span class="Apple-converted-space">    </span>document.getElementById('filterDifficulty').onchange = (e) =&gt; { currentFilter.difficulty = e.target.value; render(); };</p>
+<p class="p1"><span class="Apple-converted-space">    </span>document.getElementById('sortBy').onchange = (e) =&gt; { currentFilter.sortBy = e.target.value; render(); };</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// ------------------------------------------------------------------</p>
+<p class="p1"><span class="Apple-converted-space">    </span>// ĐẾM NGƯỢC THỜI GIAN THEO TỪNG GIÂY</p>
+<p class="p1"><span class="Apple-converted-space">    </span>// ------------------------------------------------------------------</p>
+<p class="p1"><span class="Apple-converted-space">    </span>// Đặt ngày thi, giờ mặc định 00:00:00</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const examDate = new Date('2026-06-12T00:00:00');<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>const countdownElement = document.getElementById('countdown');</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function updateCountdown() {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const now = new Date().getTime();</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const distance = examDate.getTime() - now;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>if (distance &lt; 0) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>countdownElement.textContent = "🥳 KỲ THI ĐÃ DIỄN RA!";</p>
+<p class="p1"><span class="Apple-converted-space">            </span>return;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Tính toán thời gian</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const days = Math.floor(distance / (1000 * 60 * 60 * 24));</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const seconds = Math.floor((distance % (1000 * 60)) / 1000);</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Cập nhật nội dung hiển thị</p>
+<p class="p1"><span class="Apple-converted-space">        </span>countdownElement.innerHTML = `</p>
+<p class="p1"><span class="Apple-converted-space">            </span>⏰ Đếm ngược đến ngày thi:<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;b&gt;${days} ngày&lt;/b&gt;,<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;b&gt;${hours} giờ&lt;/b&gt;,<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;b&gt;${minutes} phút&lt;/b&gt;,<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;b&gt;${seconds} giây&lt;/b&gt;<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>`;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// Chạy hàm đếm ngược lần đầu và sau đó mỗi giây</p>
+<p class="p1"><span class="Apple-converted-space">    </span>updateCountdown();</p>
+<p class="p1"><span class="Apple-converted-space">    </span>setInterval(updateCountdown, 1000);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>// ------------------------------------------------------------------</p>
+<p class="p1">});</p>
+<p class="p1">&lt;/script&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
